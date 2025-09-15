@@ -1,0 +1,11 @@
+C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Core\bin\Debug\net9.0\Mimarlik.Core.deps.json
+C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Core\bin\Debug\net9.0\Mimarlik.Core.dll
+C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Core\bin\Debug\net9.0\Mimarlik.Core.pdb
+C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Core\obj\Debug\net9.0\Mimarlik.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Core\obj\Debug\net9.0\Mimarlik.Core.AssemblyInfoInputs.cache
+C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Core\obj\Debug\net9.0\Mimarlik.Core.AssemblyInfo.cs
+C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Core\obj\Debug\net9.0\Mimarlik.Core.csproj.CoreCompileInputs.cache
+C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Core\obj\Debug\net9.0\Mimarlik.Core.dll
+C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Core\obj\Debug\net9.0\refint\Mimarlik.Core.dll
+C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Core\obj\Debug\net9.0\Mimarlik.Core.pdb
+C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Core\obj\Debug\net9.0\ref\Mimarlik.Core.dll

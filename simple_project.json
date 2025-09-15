@@ -1,0 +1,19 @@
+{
+  "title": "Project with Content Blocks",
+  "description": "Test project with content blocks",
+  "slug": "project-with-blocks",
+  "location": "Istanbul",
+  "client": "Test Client",
+  "area": 150.0,
+  "areaUnit": "m²",
+  "status": 1,
+  "contentBlocks": [
+    {
+      "type": 1,
+      "content": "This is a test content block",
+      "properties": "{}",
+      "sortOrder": 0,
+      "status": 1
+    }
+  ]
+}
