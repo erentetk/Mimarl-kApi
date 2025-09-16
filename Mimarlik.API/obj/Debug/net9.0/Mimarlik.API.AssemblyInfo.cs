@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mimarlik.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+290380b27d85b8a5da030bcbef8f3548fcc09f40")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mimarlik.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mimarlik.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

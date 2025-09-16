@@ -15,8 +15,10 @@ builder.Services.AddControllers()
     {
         // Ignore null values in JSON responses
         options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
-        // Ignore empty strings
-        options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingDefault;
+        // Handle circular references
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+        // Set max depth to prevent stack overflow
+        options.JsonSerializerOptions.MaxDepth = 32;
     });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -42,6 +44,7 @@ builder.Services.AddScoped<IDeletionService, DeletionService>();
 
 // Infrastructure services
 builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddScoped<DataSeedService>();
 
 // CORS
 builder.Services.AddCors(options =>

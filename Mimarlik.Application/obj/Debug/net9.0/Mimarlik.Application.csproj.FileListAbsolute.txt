@@ -13,3 +13,4 @@ C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Application\obj\Debug\net9.0\Mimarlik.A
 C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Application\obj\Debug\net9.0\refint\Mimarlik.Application.dll
 C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Application\obj\Debug\net9.0\Mimarlik.Application.pdb
 C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Application\obj\Debug\net9.0\ref\Mimarlik.Application.dll
+C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Application\obj\Debug\net9.0\Mimarlik.Application.sourcelink.json

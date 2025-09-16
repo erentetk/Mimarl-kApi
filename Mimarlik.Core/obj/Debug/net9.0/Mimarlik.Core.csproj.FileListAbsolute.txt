@@ -9,3 +9,4 @@ C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Core\obj\Debug\net9.0\Mimarlik.Core.dll
 C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Core\obj\Debug\net9.0\refint\Mimarlik.Core.dll
 C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Core\obj\Debug\net9.0\Mimarlik.Core.pdb
 C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Core\obj\Debug\net9.0\ref\Mimarlik.Core.dll
+C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Core\obj\Debug\net9.0\Mimarlik.Core.sourcelink.json

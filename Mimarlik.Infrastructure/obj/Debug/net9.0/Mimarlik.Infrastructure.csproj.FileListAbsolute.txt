@@ -17,3 +17,4 @@ C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Infrastructure\obj\Debug\net9.0\refint\
 C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Infrastructure\obj\Debug\net9.0\Mimarlik.Infrastructure.pdb
 C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Infrastructure\obj\Debug\net9.0\Mimarlik.Infrastructure.genruntimeconfig.cache
 C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Infrastructure\obj\Debug\net9.0\ref\Mimarlik.Infrastructure.dll
+C:\Users\Eren\Desktop\Mimarlık\Mimarlik.Infrastructure\obj\Debug\net9.0\Mimarlik.Infrastructure.sourcelink.json
