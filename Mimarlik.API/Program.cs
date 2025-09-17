@@ -68,7 +68,14 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCors("AllowAll");
-app.UseStaticFiles(); // For serving uploaded files
+
+// Configure static files - serve from Uploads directory without /Uploads prefix
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(
+        Path.Combine(builder.Environment.ContentRootPath, "Uploads")),
+    RequestPath = ""
+});
 
 app.UseAuthorization();
 app.MapControllers();

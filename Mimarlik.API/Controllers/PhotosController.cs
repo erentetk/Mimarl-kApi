@@ -44,7 +44,7 @@ public class PhotosController : BaseApiController
         return HandleResult(photo);
     }
 
-    [HttpPost("upload")]
+    [HttpPost]
     public async Task<ActionResult<PhotoDto>> Upload([FromForm] UploadPhotoRequest request)
     {
         try
@@ -55,22 +55,28 @@ public class PhotosController : BaseApiController
             if (request.File == null || request.File.Length == 0)
             {
                 _logger.LogWarning("No file uploaded");
-                return BadRequest(new { message = "No file uploaded" });
+                return BadRequest(new { message = "Dosya yüklenmedi. Lütfen bir dosya seçin." });
             }
 
-            // Validate file type
+            // Validate file type more strictly
             var allowedTypes = new[] { "image/jpeg", "image/jpg", "image/png", "image/gif", "image/bmp", "image/webp" };
-            if (!allowedTypes.Contains(request.File.ContentType.ToLowerInvariant()))
+            var fileExtension = Path.GetExtension(request.File.FileName).ToLowerInvariant();
+            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif", ".bmp", ".webp" };
+            
+            if (!allowedTypes.Contains(request.File.ContentType.ToLowerInvariant()) || 
+                !allowedExtensions.Contains(fileExtension))
             {
-                _logger.LogWarning("Invalid file type: {ContentType}", request.File.ContentType);
-                return BadRequest(new { message = "Invalid file type. Only image files are allowed." });
+                _logger.LogWarning("Invalid file type: {ContentType}, Extension: {Extension}", 
+                    request.File.ContentType, fileExtension);
+                return BadRequest(new { message = "Geçersiz dosya türü. Sadece resim dosyaları (.jpg, .jpeg, .png, .gif, .bmp, .webp) yüklenebilir." });
             }
 
             // Validate file size (10MB max)
             if (request.File.Length > 10 * 1024 * 1024)
             {
-                _logger.LogWarning("File too large: {FileSize} bytes", request.File.Length);
-                return BadRequest(new { message = "File size too large. Maximum 10MB allowed." });
+                _logger.LogWarning("File too large: {FileSize} bytes, FileName: {FileName}", 
+                    request.File.Length, request.File.FileName);
+                return BadRequest(new { message = "Dosya çok büyük. Maksimum 10MB izin verilmektedir." });
             }
 
             using var stream = request.File.OpenReadStream();
@@ -97,8 +103,12 @@ public class PhotosController : BaseApiController
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error uploading photo: {Message}", ex.Message);
-            return BadRequest(new { message = ex.Message });
+            _logger.LogError(ex, "Fotoğraf yükleme hatası. FileName: {FileName}, Message: {Message}", 
+                request.File?.FileName, ex.Message);
+            return BadRequest(new { 
+                message = $"Fotoğraf yüklenirken hata oluştu: {ex.Message}",
+                fileName = request.File?.FileName 
+            });
         }
     }
 

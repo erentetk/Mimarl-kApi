@@ -131,8 +131,14 @@ public class FileService : IFileService
         var fileExtension = Path.GetExtension(fileName);
         var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(fileName);
         
-        // Clean the filename
+        // Clean the filename - remove problematic characters and limit length
         fileNameWithoutExtension = Regex.Replace(fileNameWithoutExtension, @"[^a-zA-Z0-9_-]", "_");
+        
+        // Limit filename length to prevent filesystem issues
+        if (fileNameWithoutExtension.Length > 50)
+        {
+            fileNameWithoutExtension = fileNameWithoutExtension.Substring(0, 50);
+        }
         
         var uniqueId = Guid.NewGuid().ToString("N")[..8];
         var timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();

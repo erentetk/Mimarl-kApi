@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Photo Upload</title>
+</head>
+<body>
+    <h1>Test Photo Upload</h1>
+    
+    <form id="uploadForm" enctype="multipart/form-data">
+        <div>
+            <label>Select Image:</label>
+            <input type="file" id="fileInput" accept="image/*" required>
+        </div>
+        <div>
+            <label>Alt Text:</label>
+            <input type="text" id="altText" value="Test Upload">
+        </div>
+        <div>
+            <label>Status:</label>
+            <select id="status">
+                <option value="0">Published</option>
+                <option value="1">Hidden</option>
+                <option value="2">Draft</option>
+            </select>
+        </div>
+        <div>
+            <label>Add Watermark:</label>
+            <input type="checkbox" id="addWatermark" checked>
+        </div>
+        <button type="submit">Upload Photo</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const fileInput = document.getElementById('fileInput');
+            const altText = document.getElementById('altText').value;
+            const status = document.getElementById('status').value;
+            const addWatermark = document.getElementById('addWatermark').checked;
+            const result = document.getElementById('result');
+            
+            if (!fileInput.files[0]) {
+                result.innerHTML = '<p style="color: red;">Please select a file</p>';
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+            formData.append('altText', altText);
+            formData.append('status', status);
+            formData.append('addWatermark', addWatermark.toString());
+            
+            try {
+                result.innerHTML = '<p>Uploading...</p>';
+                
+                const response = await fetch('http://localhost:5187/api/photos', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    result.innerHTML = `<p style="color: green;">Upload successful! Photo ID: ${data.id}</p>`;
+                } else {
+                    const errorText = await response.text();
+                    console.error('Upload failed:', response.status, errorText);
+                    result.innerHTML = `<p style="color: red;">Upload failed: ${response.status} - ${errorText}</p>`;
+                }
+            } catch (error) {
+                console.error('Upload error:', error);
+                result.innerHTML = `<p style="color: red;">Upload error: ${error.message}</p>`;
+            }
+        });
+    </script>
+</body>
+</html>
